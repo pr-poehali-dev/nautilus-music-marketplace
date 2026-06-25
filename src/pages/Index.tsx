@@ -141,8 +141,68 @@ const Index = () => {
               {/* Ракушка */}
               <img src={LOGO} alt="Nautilus logo" className="w-full aspect-square object-cover" />
 
+              {/* Морские волны с вибрацией */}
+              <div className="absolute bottom-0 inset-x-0 h-64 pointer-events-none">
+                <svg viewBox="0 0 380 160" preserveAspectRatio="none" className="absolute bottom-0 w-full" style={{ height: '160px' }}>
+                  <defs>
+                    <linearGradient id="waveGrad1" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#6E44FF" stopOpacity="0" />
+                      <stop offset="100%" stopColor="#6E44FF" stopOpacity="0.35" />
+                    </linearGradient>
+                    <linearGradient id="waveGrad2" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0" />
+                      <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.45" />
+                    </linearGradient>
+                    <linearGradient id="waveGrad3" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#A78BFA" stopOpacity="0" />
+                      <stop offset="100%" stopColor="#0B0B14" stopOpacity="0.95" />
+                    </linearGradient>
+                  </defs>
+                  {/* Волна 3 — задняя, тёмная заливка */}
+                  <path fill="url(#waveGrad3)" className="wave-path-3">
+                    <animate attributeName="d" dur="5s" repeatCount="indefinite"
+                      values="
+                        M0,100 C60,80 120,120 190,90 C260,60 320,110 380,85 L380,160 L0,160 Z;
+                        M0,90 C70,110 130,70 200,100 C270,130 330,80 380,100 L380,160 L0,160 Z;
+                        M0,100 C60,80 120,120 190,90 C260,60 320,110 380,85 L380,160 L0,160 Z
+                      "
+                    />
+                  </path>
+                  {/* Волна 2 — средняя */}
+                  <path fill="url(#waveGrad2)" className="wave-path-2">
+                    <animate attributeName="d" dur="3.5s" repeatCount="indefinite"
+                      values="
+                        M0,115 C50,95 110,130 180,105 C250,80 310,125 380,100 L380,160 L0,160 Z;
+                        M0,105 C60,125 120,85 195,115 C265,140 325,95 380,115 L380,160 L0,160 Z;
+                        M0,115 C50,95 110,130 180,105 C250,80 310,125 380,100 L380,160 L0,160 Z
+                      "
+                    />
+                  </path>
+                  {/* Волна 1 — передняя, яркая */}
+                  <path fill="url(#waveGrad1)" className="wave-path-1">
+                    <animate attributeName="d" dur="2.4s" repeatCount="indefinite"
+                      values="
+                        M0,130 C45,110 100,145 165,120 C230,95 295,135 380,118 L380,160 L0,160 Z;
+                        M0,120 C55,140 115,100 180,130 C245,155 305,110 380,132 L380,160 L0,160 Z;
+                        M0,130 C45,110 100,145 165,120 C230,95 295,135 380,118 L380,160 L0,160 Z
+                      "
+                    />
+                  </path>
+                </svg>
+                {/* Вибрирующие частицы */}
+                <div className="absolute inset-x-0 bottom-32 flex justify-around px-6 pointer-events-none">
+                  {[0.6, 1, 0.4, 0.8, 0.5, 0.9, 0.3, 0.7].map((h, i) => (
+                    <span
+                      key={i}
+                      className="w-0.5 rounded-full bg-gradient-to-t from-[#6E44FF] to-[#C4B5FD]/60 animate-equalize"
+                      style={{ height: `${h * 28}px`, animationDelay: `${i * 0.1}s`, animationDuration: `${0.6 + h * 0.5}s` }}
+                    />
+                  ))}
+                </div>
+              </div>
+
               {/* Оверлей-градиент снизу */}
-              <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-t from-[#0B0B14] via-[#0B0B14]/80 to-transparent" />
+              <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-t from-[#0B0B14] via-[#0B0B14]/60 to-transparent" />
 
               {/* Моя волна — поверх ракушки снизу */}
               <div className="absolute bottom-0 inset-x-0 p-4">
