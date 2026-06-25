@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 
-const LOGO = 'https://cdn.poehali.dev/projects/f97c9f9e-ca33-4843-a9e7-4fd7ab93dc79/bucket/1d475967-f3e3-49b0-85a6-4f56ebbbe8c2.png';
+const LOGO = 'https://cdn.poehali.dev/projects/f97c9f9e-ca33-4843-a9e7-4fd7ab93dc79/files/0284eae5-3ec4-4980-818d-383e42289235.jpg';
 
 const navLinks = ['Каталог битов', 'Жанры', 'Продюсеры', 'Лицензии', 'Личный кабинет'];
 
@@ -54,9 +54,7 @@ const Index = () => {
       <header className="fixed top-0 inset-x-0 z-50">
         <nav className="glass-strong mx-auto mt-4 max-w-[1320px] rounded-[28px] px-5 py-3 flex items-center gap-6">
           <div className="flex items-center gap-3 shrink-0">
-            <div className="w-10 h-10 rounded-2xl flex items-center justify-center shrink-0" style={{ background: 'radial-gradient(ellipse at 50% 40%, #2a1660, #0B0B14)', boxShadow: '0 0 16px rgba(110,68,255,0.5)' }}>
-              <img src={LOGO} alt="Рифма" className="w-8 h-8 object-contain" style={{ filter: 'drop-shadow(0 0 6px rgba(110,68,255,0.8)) sepia(0.3) hue-rotate(220deg) saturate(0.7)' }} />
-            </div>
+            <img src={LOGO} alt="Рифма" className="w-10 h-10 rounded-2xl object-cover glow-violet" />
             <span className="font-display font-extrabold text-xl tracking-tight hidden sm:block">Рифма</span>
           </div>
           <div className="hidden lg:flex items-center gap-1 text-sm text-muted-foreground">
@@ -139,18 +137,9 @@ const Index = () => {
             <div className="absolute inset-0 bg-[#8B5CF6]/25 rounded-full blur-[120px] animate-glow" />
 
             {/* ЕДИНЫЙ БЛОК: ракушка + моя волна */}
-            <div className="relative rounded-[36px] overflow-hidden animate-float w-[380px]" style={{ background: 'radial-gradient(ellipse at 50% 40%, #2a1660 0%, #110a2e 60%, #0B0B14 100%)', boxShadow: '0 0 60px rgba(110,68,255,0.45), 0 0 120px rgba(139,92,246,0.25)' }}>
-              {/* Фиолетовый свет позади ракушки */}
-              <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 45%, rgba(110,68,255,0.35) 0%, transparent 75%)' }} />
-              {/* Ракушка — PNG с прозрачностью, тонированная */}
-              <div className="relative w-full aspect-square flex items-center justify-center p-6">
-                <img
-                  src={LOGO}
-                  alt="Рифма логотип"
-                  className="w-full h-full object-contain relative z-10"
-                  style={{ filter: 'drop-shadow(0 0 24px rgba(110,68,255,0.7)) drop-shadow(0 0 48px rgba(167,139,250,0.4)) sepia(0.3) hue-rotate(220deg) saturate(0.7) brightness(0.95)' }}
-                />
-              </div>
+            <div className="relative glass-strong rounded-[36px] overflow-hidden animate-float glow-violet w-[380px]">
+              {/* Ракушка */}
+              <img src={LOGO} alt="Рифма логотип" className="w-full aspect-square object-cover" />
 
               {/* Морские волны с вибрацией */}
               <div className="absolute bottom-0 inset-x-0 h-64 pointer-events-none">
@@ -418,9 +407,7 @@ const Index = () => {
 
       <footer className="px-6 max-w-[1320px] mx-auto mt-20 text-center text-sm text-muted-foreground">
         <div className="flex items-center justify-center gap-3 mb-3">
-          <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: 'radial-gradient(ellipse at 50% 40%, #2a1660, #0B0B14)' }}>
-            <img src={LOGO} alt="" className="w-6 h-6 object-contain" style={{ filter: 'drop-shadow(0 0 4px rgba(110,68,255,0.8)) sepia(0.3) hue-rotate(220deg) saturate(0.7)' }} />
-          </div>
+          <img src={LOGO} alt="" className="w-8 h-8 rounded-xl object-cover" />
           <span className="font-display font-extrabold text-lg text-foreground">Рифма</span>
         </div>
         © 2026 Рифма — маркетплейс музыкальных битов
