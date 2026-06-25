@@ -55,7 +55,7 @@ const Index = () => {
         <nav className="glass-strong mx-auto mt-4 max-w-[1320px] rounded-[28px] px-5 py-3 flex items-center gap-6">
           <div className="flex items-center gap-3 shrink-0">
             <img src={LOGO} alt="Nautilus" className="w-10 h-10 rounded-2xl object-cover glow-violet" />
-            <span className="font-display font-extrabold text-xl tracking-tight hidden sm:block">NAUTILUS</span>
+            <span className="font-display font-extrabold text-xl tracking-tight hidden sm:block">Рифма</span>
           </div>
           <div className="hidden lg:flex items-center gap-1 text-sm text-muted-foreground">
             {navLinks.map((l) => (
@@ -337,7 +337,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#6E44FF]/20 to-[#8B5CF6]/20" />
           <div className="relative">
             <h2 className="font-display font-black text-4xl md:text-5xl">Готов выпустить свой хит?</h2>
-            <p className="text-muted-foreground mt-4 max-w-lg mx-auto">Присоединяйся к тысячам артистов и продюсеров на NAUTILUS.</p>
+            <p className="text-muted-foreground mt-4 max-w-lg mx-auto">Присоединяйся к тысячам артистов и продюсеров на Рифма.</p>
             <Button size="lg" className="mt-8 rounded-2xl h-14 px-10 text-base bg-gradient-to-r from-[#6E44FF] to-[#8B5CF6] hover:opacity-90 font-semibold glow-violet">
               Начать бесплатно
             </Button>
@@ -348,9 +348,9 @@ const Index = () => {
       <footer className="px-6 max-w-[1320px] mx-auto mt-20 text-center text-sm text-muted-foreground">
         <div className="flex items-center justify-center gap-3 mb-3">
           <img src={LOGO} alt="" className="w-8 h-8 rounded-xl object-cover" />
-          <span className="font-display font-extrabold text-lg text-foreground">NAUTILUS</span>
+          <span className="font-display font-extrabold text-lg text-foreground">Рифма</span>
         </div>
-        © 2026 NAUTILUS — маркетплейс музыкальных битов
+        © 2026 Рифма — маркетплейс музыкальных битов
       </footer>
 
       {/* PLAYER */}
