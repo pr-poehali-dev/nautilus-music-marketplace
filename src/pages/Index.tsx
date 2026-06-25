@@ -80,16 +80,16 @@ const Index = () => {
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute inset-y-0 flex items-center" style={{ animation: 'marquee-bg 28s linear infinite', width: '200%' }}>
             <img
-              src="https://cdn.poehali.dev/projects/f97c9f9e-ca33-4843-a9e7-4fd7ab93dc79/files/b6172782-88e9-4219-b989-6810c6a13ae9.jpg"
+              src="https://cdn.poehali.dev/projects/f97c9f9e-ca33-4843-a9e7-4fd7ab93dc79/files/53c3d3b1-e1a0-4294-b389-16708896d587.jpg"
               alt=""
               className="h-full w-1/2 object-cover object-center"
-              style={{ opacity: 0.13, filter: 'saturate(1.6) hue-rotate(10deg)' }}
+              style={{ opacity: 0.18, filter: 'saturate(1.8) hue-rotate(10deg)' }}
             />
             <img
-              src="https://cdn.poehali.dev/projects/f97c9f9e-ca33-4843-a9e7-4fd7ab93dc79/files/b6172782-88e9-4219-b989-6810c6a13ae9.jpg"
+              src="https://cdn.poehali.dev/projects/f97c9f9e-ca33-4843-a9e7-4fd7ab93dc79/files/53c3d3b1-e1a0-4294-b389-16708896d587.jpg"
               alt=""
               className="h-full w-1/2 object-cover object-center"
-              style={{ opacity: 0.13, filter: 'saturate(1.6) hue-rotate(10deg)' }}
+              style={{ opacity: 0.18, filter: 'saturate(1.8) hue-rotate(10deg)' }}
             />
           </div>
           {/* Радужный цветовой оверлей поверх коллажа */}
