@@ -107,60 +107,67 @@ const Index = () => {
 
           <div className="relative flex justify-center animate-fade-in" style={{ animationDelay: '0.15s' }}>
             <div className="absolute inset-0 bg-[#8B5CF6]/25 rounded-full blur-[120px] animate-glow" />
-            <img src={LOGO} alt="Nautilus logo" className="relative w-[380px] h-[380px] rounded-[40px] object-cover animate-float glow-violet" />
 
-            {/* МОЯ ВОЛНА — рекомендации */}
-            <div className="absolute -bottom-6 -left-2 sm:left-2 glass-strong rounded-[28px] p-4 w-[300px] glow-violet animate-fade-in" style={{ animationDelay: '0.35s' }}>
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => setWave(!wave)}
-                  className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-[#6E44FF] to-[#8B5CF6] flex items-center justify-center shrink-0 hover:scale-105 transition-transform glow-violet"
-                >
-                  <Icon name={wave ? 'Pause' : 'Play'} size={26} />
-                  {wave && (
-                    <span className="absolute -inset-1 rounded-2xl border-2 border-neon-light/50 animate-glow" />
-                  )}
-                </button>
-                <div className="min-w-0">
-                  <div className="font-display font-bold text-lg leading-tight">Моя волна</div>
-                  <div className="text-xs text-muted-foreground">Биты, подобранные под тебя</div>
+            {/* ЕДИНЫЙ БЛОК: ракушка + моя волна */}
+            <div className="relative glass-strong rounded-[36px] overflow-hidden animate-float glow-violet w-[380px]">
+              {/* Ракушка */}
+              <img src={LOGO} alt="Nautilus logo" className="w-full aspect-square object-cover" />
+
+              {/* Оверлей-градиент снизу */}
+              <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-t from-[#0B0B14] via-[#0B0B14]/80 to-transparent" />
+
+              {/* Моя волна — поверх ракушки снизу */}
+              <div className="absolute bottom-0 inset-x-0 p-4">
+                <div className="flex items-center gap-3 mb-3">
+                  <button
+                    onClick={() => setWave(!wave)}
+                    className="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-[#6E44FF] to-[#8B5CF6] flex items-center justify-center shrink-0 hover:scale-105 transition-transform"
+                  >
+                    <Icon name={wave ? 'Pause' : 'Play'} size={22} />
+                    {wave && <span className="absolute -inset-1 rounded-2xl border-2 border-neon-light/40 animate-glow" />}
+                  </button>
+                  <div className="min-w-0 flex-1">
+                    <div className="font-display font-bold text-base leading-tight">Моя волна</div>
+                    <div className="text-xs text-muted-foreground">Биты, подобранные под тебя</div>
+                  </div>
+                  <div className="flex items-end gap-0.5 h-6 shrink-0">
+                    {[0, 1, 2, 3, 4].map((bar) => (
+                      <span
+                        key={bar}
+                        className={`w-1 rounded-full bg-gradient-to-t from-[#6E44FF] to-[#A78BFA] transition-all duration-300 ${wave ? 'animate-equalize' : ''}`}
+                        style={{ height: wave ? '100%' : '30%', animationDelay: `${bar * 0.13}s` }}
+                      />
+                    ))}
+                  </div>
                 </div>
-                <div className="ml-auto flex items-end gap-0.5 h-7 shrink-0">
-                  {[0, 1, 2, 3, 4].map((bar) => (
-                    <span
-                      key={bar}
-                      className={`w-1 rounded-full bg-gradient-to-t from-[#6E44FF] to-[#A78BFA] ${wave ? 'animate-equalize' : ''}`}
-                      style={{ height: wave ? '100%' : '35%', animationDelay: `${bar * 0.13}s` }}
-                    />
+
+                <div className="space-y-1">
+                  {recommended.map((r, i) => (
+                    <button
+                      key={r.title}
+                      onClick={() => setWave(true)}
+                      className={`w-full flex items-center gap-3 rounded-2xl px-2 py-1.5 text-left transition-colors ${wave && i === 0 ? 'bg-white/15' : 'hover:bg-white/8'}`}
+                    >
+                      <div className={`w-8 h-8 rounded-xl bg-gradient-to-br ${r.color} flex items-center justify-center shrink-0`}>
+                        <Icon name="Music" size={14} />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="text-sm font-semibold truncate">{r.title}</div>
+                        <div className="text-xs text-muted-foreground truncate">{r.producer} · {r.bpm} BPM</div>
+                      </div>
+                      {wave && i === 0 && (
+                        <div className="flex items-end gap-0.5 h-4 shrink-0">
+                          {[0, 1, 2].map((b) => (
+                            <span key={b} className="w-0.5 bg-neon-light rounded-full animate-equalize" style={{ height: '100%', animationDelay: `${b * 0.15}s` }} />
+                          ))}
+                        </div>
+                      )}
+                    </button>
                   ))}
                 </div>
               </div>
-
-              <div className="mt-4 space-y-1.5">
-                {recommended.map((r, i) => (
-                  <button
-                    key={r.title}
-                    onClick={() => setWave(true)}
-                    className={`w-full flex items-center gap-3 rounded-2xl p-2 text-left transition-colors ${wave && i === 0 ? 'bg-white/10' : 'hover:bg-white/5'}`}
-                  >
-                    <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${r.color} flex items-center justify-center shrink-0`}>
-                      <Icon name="Music" size={16} />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="text-sm font-semibold truncate">{r.title}</div>
-                      <div className="text-xs text-muted-foreground truncate">{r.producer} · {r.bpm} BPM</div>
-                    </div>
-                    {wave && i === 0 && (
-                      <div className="flex items-end gap-0.5 h-4 shrink-0">
-                        {[0, 1, 2].map((b) => (
-                          <span key={b} className="w-0.5 bg-neon-light rounded-full animate-equalize" style={{ height: '100%', animationDelay: `${b * 0.15}s` }} />
-                        ))}
-                      </div>
-                    )}
-                  </button>
-                ))}
-              </div>
             </div>
+
           </div>
         </div>
       </section>
