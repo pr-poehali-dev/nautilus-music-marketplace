@@ -75,7 +75,35 @@ const Index = () => {
       </header>
 
       {/* HERO */}
-      <section className="relative pt-44 pb-24 px-6">
+      <section className="relative pt-44 pb-24 px-6 overflow-hidden">
+        {/* Коллаж битмейкеров — движется слева направо */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute inset-y-0 flex items-center" style={{ animation: 'marquee-bg 28s linear infinite', width: '200%' }}>
+            <img
+              src="https://cdn.poehali.dev/projects/f97c9f9e-ca33-4843-a9e7-4fd7ab93dc79/files/b6172782-88e9-4219-b989-6810c6a13ae9.jpg"
+              alt=""
+              className="h-full w-1/2 object-cover object-center"
+              style={{ opacity: 0.13, filter: 'saturate(1.6) hue-rotate(10deg)' }}
+            />
+            <img
+              src="https://cdn.poehali.dev/projects/f97c9f9e-ca33-4843-a9e7-4fd7ab93dc79/files/b6172782-88e9-4219-b989-6810c6a13ae9.jpg"
+              alt=""
+              className="h-full w-1/2 object-cover object-center"
+              style={{ opacity: 0.13, filter: 'saturate(1.6) hue-rotate(10deg)' }}
+            />
+          </div>
+          {/* Радужный цветовой оверлей поверх коллажа */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(105deg, rgba(110,68,255,0.55) 0%, rgba(139,92,246,0.4) 20%, rgba(167,139,250,0.3) 40%, rgba(196,181,253,0.25) 55%, rgba(139,92,246,0.35) 75%, rgba(110,68,255,0.5) 100%)',
+              mixBlendMode: 'multiply',
+            }}
+          />
+          {/* Затемнение краёв */}
+          <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 100% at 50% 50%, transparent 30%, #0B0B14 100%)' }} />
+        </div>
+
         <div className="absolute top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#6E44FF]/20 rounded-full blur-[140px] animate-glow pointer-events-none" />
         <div className="max-w-[1320px] mx-auto grid lg:grid-cols-2 gap-12 items-center relative">
           <div className="animate-fade-in">

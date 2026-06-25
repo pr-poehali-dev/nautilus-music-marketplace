@@ -162,3 +162,12 @@
   background: linear-gradient(#6e44ff, #8b5cf6);
   border-radius: 10px;
 }
+
+@keyframes marquee-bg {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

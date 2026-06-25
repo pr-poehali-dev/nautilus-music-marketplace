@@ -107,6 +107,10 @@ export default {
 				'equalize': {
 					'0%, 100%': { transform: 'scaleY(0.3)' },
 					'50%': { transform: 'scaleY(1)' }
+				},
+				'marquee-bg': {
+					'0%': { transform: 'translateX(0%)' },
+					'100%': { transform: 'translateX(-50%)' }
 				}
 			},
 			animation: {
