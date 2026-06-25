@@ -334,6 +334,15 @@ const Index = () => {
           </div>
           <h2 className="font-display font-extrabold text-4xl">Лицензия под любую задачу</h2>
           <p className="text-muted-foreground mt-3 max-w-xl mx-auto">От демо-записи до полных эксклюзивных прав — выбери условия использования, которые подходят твоему проекту.</p>
+          <div className="inline-flex items-center gap-3 glass rounded-2xl px-5 py-3 mt-6">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#6E44FF] to-[#8B5CF6] flex items-center justify-center shrink-0">
+              <Icon name="Scale" size={18} />
+            </div>
+            <div className="text-left">
+              <div className="text-sm font-semibold text-foreground">Юридическая поддержка</div>
+              <div className="text-xs text-muted-foreground">Помогаем с оформлением прав и спорными ситуациями</div>
+            </div>
+          </div>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {licenses.map((lic) => (
