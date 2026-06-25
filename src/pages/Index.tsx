@@ -38,8 +38,15 @@ const licenses = [
   { name: 'Exclusive', price: 899, format: 'Все файлы + права', streams: '∞', use: 'Полные права на бит', highlight: false, perks: ['Эксклюзивные права', 'Бит снимается с продажи', 'Все исходники', 'Без отчислений'] },
 ];
 
+const recommended = [
+  { title: 'Neon Pulse', producer: 'WAVEKING', bpm: 138, color: 'from-[#6E44FF] to-[#8B5CF6]' },
+  { title: 'Silk', producer: 'LUNA', bpm: 92, color: 'from-[#8B5CF6] to-[#A78BFA]' },
+  { title: 'Shadow Run', producer: 'NOIRE', bpm: 158, color: 'from-[#A78BFA] to-[#6E44FF]' },
+];
+
 const Index = () => {
   const [playing, setPlaying] = useState<number | null>(0);
+  const [wave, setWave] = useState(false);
 
   return (
     <div className="min-h-screen text-foreground font-body overflow-x-hidden pb-28">
@@ -101,6 +108,59 @@ const Index = () => {
           <div className="relative flex justify-center animate-fade-in" style={{ animationDelay: '0.15s' }}>
             <div className="absolute inset-0 bg-[#8B5CF6]/25 rounded-full blur-[120px] animate-glow" />
             <img src={LOGO} alt="Nautilus logo" className="relative w-[380px] h-[380px] rounded-[40px] object-cover animate-float glow-violet" />
+
+            {/* МОЯ ВОЛНА — рекомендации */}
+            <div className="absolute -bottom-6 -left-2 sm:left-2 glass-strong rounded-[28px] p-4 w-[300px] glow-violet animate-fade-in" style={{ animationDelay: '0.35s' }}>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => setWave(!wave)}
+                  className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-[#6E44FF] to-[#8B5CF6] flex items-center justify-center shrink-0 hover:scale-105 transition-transform glow-violet"
+                >
+                  <Icon name={wave ? 'Pause' : 'Play'} size={26} />
+                  {wave && (
+                    <span className="absolute -inset-1 rounded-2xl border-2 border-neon-light/50 animate-glow" />
+                  )}
+                </button>
+                <div className="min-w-0">
+                  <div className="font-display font-bold text-lg leading-tight">Моя волна</div>
+                  <div className="text-xs text-muted-foreground">Биты, подобранные под тебя</div>
+                </div>
+                <div className="ml-auto flex items-end gap-0.5 h-7 shrink-0">
+                  {[0, 1, 2, 3, 4].map((bar) => (
+                    <span
+                      key={bar}
+                      className={`w-1 rounded-full bg-gradient-to-t from-[#6E44FF] to-[#A78BFA] ${wave ? 'animate-equalize' : ''}`}
+                      style={{ height: wave ? '100%' : '35%', animationDelay: `${bar * 0.13}s` }}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-4 space-y-1.5">
+                {recommended.map((r, i) => (
+                  <button
+                    key={r.title}
+                    onClick={() => setWave(true)}
+                    className={`w-full flex items-center gap-3 rounded-2xl p-2 text-left transition-colors ${wave && i === 0 ? 'bg-white/10' : 'hover:bg-white/5'}`}
+                  >
+                    <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${r.color} flex items-center justify-center shrink-0`}>
+                      <Icon name="Music" size={16} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="text-sm font-semibold truncate">{r.title}</div>
+                      <div className="text-xs text-muted-foreground truncate">{r.producer} · {r.bpm} BPM</div>
+                    </div>
+                    {wave && i === 0 && (
+                      <div className="flex items-end gap-0.5 h-4 shrink-0">
+                        {[0, 1, 2].map((b) => (
+                          <span key={b} className="w-0.5 bg-neon-light rounded-full animate-equalize" style={{ height: '100%', animationDelay: `${b * 0.15}s` }} />
+                        ))}
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
